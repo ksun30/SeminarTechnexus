@@ -42,6 +42,18 @@
 					href="/projects/create">New Project</a
 				>
 			{/if}
+			{#if data.auth.isAuthenticated}
+				<a
+					class="rounded-full border border-line px-4 py-2 no-underline transition hover:border-brand hover:bg-brand-soft/40"
+					href="/news">News</a
+				>
+			{/if}
+			{#if data.auth.permissions.canCreateNews}
+				<a
+					class="rounded-full border border-line px-4 py-2 no-underline transition hover:border-brand hover:bg-brand-soft/40"
+					href="/news/create">New Article</a
+				>
+			{/if}
 			{#if data.auth.permissions.canManageUsers}
 				<a
 					class="rounded-full border border-line px-4 py-2 no-underline transition hover:border-brand hover:bg-brand-soft/40"
