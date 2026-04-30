@@ -1,9 +1,8 @@
-import { fail, isRedirect, redirect } from '@sveltejs/kit';
-import { error } from '@sveltejs/kit';
+import { error, fail, isRedirect, redirect } from '@sveltejs/kit';
 
 import type { Actions, PageServerLoad } from './$types';
 
-import { getActor, requireAuth, requirePermission } from '$server/auth/guards';
+import { requireAuth, requirePermission } from '$server/auth/guards';
 import { canCreateNews, canDeleteNews, canPublishNews } from '$server/auth/permissions';
 import { newsService } from '$server/features/news/news.service';
 import { getHttpErrorDetails } from '$server/shared/errors/http-error-map';
