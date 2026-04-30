@@ -1,6 +1,7 @@
 # Project Pulse 
 
 
+
 Project Pulse is a scalable CRUD starter built with SvelteKit, TypeScript, Tailwind CSS, Drizzle ORM, and PostgreSQL.
 
 ## Stack
