@@ -78,3 +78,15 @@ export function canManageTasks(role: AppRole) {
 export function canReadProjects(role: AppRole) {
 	return role === 'admin' || role === 'manager' || role === 'member';
 }
+
+export function canCreateNews(role: AppRole) {
+	return role === 'admin' || role === 'manager';
+}
+
+export function canPublishNews(role: AppRole) {
+	return role === 'admin' || role === 'manager';
+}
+
+export function canDeleteNews(role: AppRole) {
+	return role === 'admin';
+}

@@ -1,6 +1,7 @@
 import type { LayoutServerLoad } from './$types';
 
 import {
+	canCreateNews,
 	canCreateProjects,
 	canManageUsers,
 	normalizeRole
@@ -16,10 +17,9 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 			isAuthenticated: locals.isAuthenticated,
 			role,
 			permissions: {
-				canCreateProjects: locals.isAuthenticated
-					? canCreateProjects(role)
-					: false,
-				canManageUsers: locals.isAuthenticated ? canManageUsers(role) : false
+				canCreateProjects: locals.isAuthenticated ? canCreateProjects(role) : false,
+				canManageUsers: locals.isAuthenticated ? canManageUsers(role) : false,
+				canCreateNews: locals.isAuthenticated ? canCreateNews(role) : false
 			}
 		}
 	};

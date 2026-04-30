@@ -4,11 +4,14 @@ import type { RequestEvent } from '@sveltejs/kit';
 
 import type { AuthActor } from './permissions';
 import {
+	canCreateNews,
 	canCreateProjects,
+	canDeleteNews,
 	canDeleteProjects,
 	canEditProjects,
 	canManageTasks,
 	canManageUsers,
+	canPublishNews,
 	canReadProjects,
 	normalizeRole
 } from './permissions';
@@ -19,7 +22,10 @@ export type AppPermission =
 	| 'edit-projects'
 	| 'delete-projects'
 	| 'manage-tasks'
-	| 'manage-users';
+	| 'manage-users'
+	| 'create-news'
+	| 'publish-news'
+	| 'delete-news';
 
 function canAccess(permission: AppPermission, role: AuthActor['role']) {
 	switch (permission) {
@@ -35,6 +41,12 @@ function canAccess(permission: AppPermission, role: AuthActor['role']) {
 			return canManageTasks(role);
 		case 'manage-users':
 			return canManageUsers(role);
+		case 'create-news':
+			return canCreateNews(role);
+		case 'publish-news':
+			return canPublishNews(role);
+		case 'delete-news':
+			return canDeleteNews(role);
 	}
 }
 
